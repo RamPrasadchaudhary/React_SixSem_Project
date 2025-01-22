@@ -1,0 +1,219 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background color */
+}
+
+.container {
+    max-width: 1000px; /* Maximum width for the container */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background-color: #fff; /* White background for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in width/height */
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+    color: #34495e; /* Dark color for the heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between elements */
+    margin-bottom: 20px; /* Margin below the search bar */
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+    gap: 10px; /* Gap between elements */
+}
+
+.search-bar input {
+    flex: 1; /* Allow input to grow */
+    padding: 10px; /* Padding inside the input */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.search-button,
+.reset-button {
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    transition: background-color 0.3s; /* Smooth transition */
+    width: auto; /* Auto width for buttons */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.search-button:hover,
+.reset-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Filter by Branch */
+.filter-branch {
+    margin-bottom: 20px; /* Margin below the filter */
+}
+
+.filter-branch label {
+    margin-right: 10px; /* Space between label and select */
+}
+
+.filter-branch select {
+    padding: 10px; /* Padding for the dropdown */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    color: #34495e; /* Dark text color */
+}
+
+/* Add Student Link */
+.add-student-link {
+    text-align: right; /* Align link to the right */
+    margin-bottom: 20px; /* Margin below the link */
+}
+
+.add-student-button {
+    display: inline-block; /* Inline block for button-like appearance */
+    padding: 10px 15px; /* Padding for the button */
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-student-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Student List */
+.student-list {
+    width: 100%; /* Full width for the table */
+    overflow-x: auto; /* Enable horizontal scroll on small screens */
+}
+
+.student-table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders */
+    margin-top: 20px; /* Margin above the table */
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.student-table th,
+.student-table td {
+    border: 1px solid #ccc; /* Light border for table cells */
+    padding: 10px; /* Padding inside table cells */
+    text-align: left; /* Left align text */
+}
+
+.student-table th {
+    background-color: #f2f2f2; /* Light gray background for header */
+    color: #34495e; /* Dark color for header text */
+}
+
+.student-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light background for even rows */
+}
+
+.student-table tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* No Students Found */
+.no-students {
+    text-align: center; /* Center the message */
+    color: #999; /* Light gray color */
+    font-size: 18px; /* Font size for message */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 95%; /* Adjust width for medium devices */
+    }
+
+    h1 {
+        font-size: 28px; /* Adjust font size for headings */
+    }
+
+    .student-table th,
+    .student-table td {
+        font-size: 16px; /* Adjust font size for table cells */
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: stretch; /* Full width elements */
+    }
+
+    .search-bar input {
+        margin-right: 0; /* Remove right margin */
+    }
+
+    .search-button,
+    .reset-button {
+        width: 100%; /* Full width for buttons */
+        margin-bottom: 10px; /* Space below buttons */
+    }
+
+    .add-student-link {
+        text-align: center; /* Center link */
+    }
+
+    .student-table th,
+    .student-table td {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Reduce padding on small screens */
+    }
+
+    h1 {
+        font-size: 20px; /* Adjust heading size for smaller devices */
+    }
+
+    .student-table th,
+    .student-table td {
+        font-size: 12px; /* Reduce font size for table cells */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .search-bar input {
+        font-size: 14px; /* Adjust font size for inputs */
+    }
+
+    .add-student-button {
+        padding: 8px 10px; /* Adjust padding for buttons */
+    }
+}
+
+.student-table td a {
+    display: flex; /* Flex layout for icons and text */
+    align-items: center; /* Center icon and text */
+    gap: 5px; /* Space between icon and text */
+    color: #007bff; /* Blue color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.student-table td a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.icon {
+    font-size: 16px; /* Set icon size */
+}
