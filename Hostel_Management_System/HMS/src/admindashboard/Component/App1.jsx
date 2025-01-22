@@ -5,7 +5,7 @@ import Student from "./Student";
 import ManageStaff from "./ManageStaff";
 import Room from "./Room";
 import "../Style/App1.css";
-
+import ManageWardens from "./ManageWardens";
 const App1 = () => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [selectedComponent, setSelectedComponent] = useState("MainContent");
@@ -22,6 +22,8 @@ const App1 = () => {
         return <Student />;
       case "ManageStaff":
         return <ManageStaff />;
+        case "ManageWardens":
+          return <ManageWardens />;  
       case "Room":
         return <Room />;
       default:

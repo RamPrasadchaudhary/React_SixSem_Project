@@ -20,7 +20,7 @@
     margin: 10px 0 0 0; /* Add space above the subtitle */
     font-weight: 400; /* Regular font weight */
   }
-  
+ 
   /* Responsive Styles */
   @media (max-width: 768px) {
     .heading-title {

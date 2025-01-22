@@ -36,7 +36,7 @@ const Sidebar = ({ className, onSelect }) => {
             <FontAwesomeIcon icon={faUserTie} /> Manage Staff
           </button>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Room")}>
+        <li className="sidebar-item" onClick={() => onSelect("ManageWardens")}>
           <button className="sidebar-link">
             <FontAwesomeIcon icon={faUserCog} /> Manage Wardens
           </button>
