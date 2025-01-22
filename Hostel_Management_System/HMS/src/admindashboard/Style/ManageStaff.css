@@ -118,6 +118,7 @@
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
+    width:150px;
     border: none;
     color: white;
   }

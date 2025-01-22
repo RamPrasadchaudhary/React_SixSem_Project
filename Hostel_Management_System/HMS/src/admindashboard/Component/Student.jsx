@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../Style/Student.css"; // Import the CSS file
 import Heading from "./Heading";
+
 const Student = () => {
   const [students, setStudents] = useState([
     {
@@ -21,35 +22,48 @@ const Student = () => {
       contact: 987654321,
       admissionDate: "2024-09-01",
     },
-
-    {
-      id: "003",
-      name: "Rishu Kumar",
-      roomNo: 516,
-      branch: "Computer",
-      contact: 987654321,
-      admissionDate: "2024-09-01",
-    },
-
-    {
-      id: "004",
-      name: "Rishu Kumar",
-      roomNo: 516,
-      branch: "Science",
-      contact: 987654321,
-      admissionDate: "2024-09-01",
-    },
   ]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBranch, setSelectedBranch] = useState("All Branches");
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState(""); // "add", "edit"
+  const [currentStudent, setCurrentStudent] = useState(null);
+
+  const handleSearchChange = (e) => setSearchQuery(e.target.value);
+
+  const handleBranchChange = (e) => setSelectedBranch(e.target.value);
+
+  const handleOpenModal = (type, student = null) => {
+    setModalType(type);
+    setCurrentStudent(student);
+    setIsModalOpen(true);
   };
 
-  const handleBranchChange = (e) => {
-    setSelectedBranch(e.target.value);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setCurrentStudent(null);
+  };
+
+  const handleAddStudent = (newStudent) => {
+    setStudents([...students, { ...newStudent, id: `${Date.now()}` }]);
+    handleCloseModal();
+  };
+
+  const handleEditStudent = (updatedStudent) => {
+    setStudents(
+      students.map((student) =>
+        student.id === updatedStudent.id ? updatedStudent : student
+      )
+    );
+    handleCloseModal();
+  };
+
+  const handleDeleteStudent = (id) => {
+    if (window.confirm("Are you sure you want to delete this student?")) {
+      setStudents(students.filter((student) => student.id !== id));
+    }
   };
 
   const filteredStudents = students.filter((student) => {
@@ -62,12 +76,13 @@ const Student = () => {
 
   return (
     <>
-    <div>
-      <Heading title="Student Record" subtitle="Manage all your student data in one place" />
-      {/* Page content goes here */}
-    </div>
+      <div>
+        <Heading
+          title="Student Record"
+          subtitle="Manage all your student data in one place"
+        />
+      </div>
       <div className="container">
-        {/* <h1>Manage Students</h1> */}
         <div className="search-bar">
           <input
             type="text"
@@ -95,9 +110,12 @@ const Student = () => {
           </select>
         </div>
         <div className="add-student-link">
-          <a href="/add-student" className="add-student-button">
+          <button
+            className="add-student-button"
+            onClick={() => handleOpenModal("add")}
+          >
             Add Student
-          </a>
+          </button>
         </div>
         <div className="student-list">
           {filteredStudents.length > 0 ? (
@@ -124,15 +142,20 @@ const Student = () => {
                     <td>{student.contact}</td>
                     <td>{student.admissionDate}</td>
                     <td>
-                      <a href="#" className="edit-link">
+                      <button
+                        className="edit-link"
+                        onClick={() => handleOpenModal("edit", student)}
+                      >
                         <FontAwesomeIcon icon={faEdit} className="icon" /> Edit
-                      </a>
+                      </button>
                     </td>
                     <td>
-                      <a href="#" className="delete-link">
-                        <FontAwesomeIcon icon={faTrash} className="icon" />{" "}
-                        Delete
-                      </a>
+                      <button
+                        className="delete-link"
+                        onClick={() => handleDeleteStudent(student.id)}
+                      >
+                        <FontAwesomeIcon icon={faTrash} className="icon" /> Delete
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -143,7 +166,97 @@ const Student = () => {
           )}
         </div>
       </div>
+
+      {isModalOpen && (
+        <Modal
+          type={modalType}
+          student={currentStudent}
+          onClose={handleCloseModal}
+          onAdd={handleAddStudent}
+          onEdit={handleEditStudent}
+        />
+      )}
     </>
+  );
+};
+
+const Modal = ({ type, student, onClose, onAdd, onEdit }) => {
+  const [formData, setFormData] = useState(
+    student || { id: "", name: "", roomNo: "", branch: "", contact: "", admissionDate: "" }
+  );
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    if (type === "add") {
+      onAdd(formData);
+    } else if (type === "edit") {
+      onEdit(formData);
+    }
+  };
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <h3>{type === "add" ? "Add New Student" : "Edit Student"}</h3>
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Room No</label>
+          <input
+            type="number"
+            name="roomNo"
+            value={formData.roomNo}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Branch</label>
+          <input
+            type="text"
+            name="branch"
+            value={formData.branch}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Contact</label>
+          <input
+            type="number"
+            name="contact"
+            value={formData.contact}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Admission Date</label>
+          <input
+            type="date"
+            name="admissionDate"
+            value={formData.admissionDate}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="modal-buttons">
+          <button className="add-btn" onClick={handleSubmit}>
+            {type === "add" ? "Add" : "Save"}
+          </button>
+          <button className="cancel-btn" onClick={onClose}>
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

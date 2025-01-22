@@ -217,3 +217,11 @@ h1 {
 .icon {
     font-size: 16px; /* Set icon size */
 }
+.edit-link {
+width:100%;
+color:green; 
+}
+.delete-link {
+color:red;
+    width:100%;
+    }
