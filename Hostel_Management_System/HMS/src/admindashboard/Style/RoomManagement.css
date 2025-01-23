@@ -1,0 +1,250 @@
+.room-management {
+    padding: 20px;
+    margin-left: 10%;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Filters Section */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filters input,
+  .filters select {
+    padding: 10px;
+    margin: 5px 0;
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .filters .add-room-button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1;
+    max-width: 200px;
+  }
+  
+  .filters .add-room-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Room List */
+  .room-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .room-list th,
+  .room-list td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .room-list th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+  }
+  
+  .room-list tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .allocate-button,
+  .delete-button {
+    padding: 8px 8px;
+    border: none;
+    width:30%;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .allocate-button {
+    background-color: #007bff;
+    margin-right: 20px;
+  }
+  
+  .allocate-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+   
+  }
+  
+  .delete-button:hover {
+    background-color: #b02a37;
+  }
+  
+  /* Modal Styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+  }
+  
+  .modal-content h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .add-btn,
+  .allocate-btn,
+  .cancel-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    flex: 1;
+    margin: 0 5px;
+  }
+  
+  .add-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .allocate-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .add-btn:hover {
+    background-color: #218838;
+  }
+  
+  .allocate-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #b02a37;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .filters input,
+    .filters select,
+    .filters .add-room-button {
+      flex: none;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .room-list table,
+    .room-list th,
+    .room-list td {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .modal-content {
+      width: 95%;
+    }
+  
+    .modal-buttons {
+      flex-direction: column;
+    }
+  
+    .add-btn,
+    .allocate-btn,
+    .cancel-btn {
+      margin: 5px 0;
+      width: 100%;
+    }
+    .allocate-button,
+  .delete-button{
+    width:auto;
+  }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .filters input,
+    .filters select,
+    .filters .add-room-button {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .modal-content h3 {
+      font-size: 1.2rem;
+    }
+  
+    .modal-buttons button {
+      font-size: 0.9rem;
+    }
+  }
+  

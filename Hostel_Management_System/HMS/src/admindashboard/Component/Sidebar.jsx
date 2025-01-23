@@ -41,27 +41,27 @@ const Sidebar = ({ className, onSelect }) => {
             <FontAwesomeIcon icon={faUserCog} /> Manage Wardens
           </button>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("AdminDashBoard")}>
+        <li className="sidebar-item" onClick={() => onSelect("RoomManagement")}>
           <button className="sidebar-link">
             <FontAwesomeIcon icon={faBed} /> Manage Rooms
           </button>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Complaints")}>
+        <li className="sidebar-item" onClick={() => onSelect("ComplaintPage")}>
           <button className="sidebar-link">
             <FontAwesomeIcon icon={faExclamationTriangle} /> Complaints
           </button>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Payments")}>
+        <li className="sidebar-item" onClick={() => onSelect("Payment")}>
           <button className="sidebar-link">
             <FontAwesomeIcon icon={faCreditCard} /> Payments
           </button>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Reports")}>
+        <li className="sidebar-item" onClick={() => onSelect("Report")}>
           <button className="sidebar-link">
             <FontAwesomeIcon icon={faFileAlt} /> Reports
           </button>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Settings")}>
+        <li className="sidebar-item" onClick={() => onSelect("Setting")}>
           <button className="sidebar-link">
             <FontAwesomeIcon icon={faCogs} /> Settings
           </button>

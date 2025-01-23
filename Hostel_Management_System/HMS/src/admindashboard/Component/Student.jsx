@@ -154,7 +154,8 @@ const Student = () => {
                         className="delete-link"
                         onClick={() => handleDeleteStudent(student.id)}
                       >
-                        <FontAwesomeIcon icon={faTrash} className="icon" /> Delete
+                        <FontAwesomeIcon icon={faTrash} className="icon" />{" "}
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -182,7 +183,14 @@ const Student = () => {
 
 const Modal = ({ type, student, onClose, onAdd, onEdit }) => {
   const [formData, setFormData] = useState(
-    student || { id: "", name: "", roomNo: "", branch: "", contact: "", admissionDate: "" }
+    student || {
+      id: "",
+      name: "",
+      roomNo: "",
+      branch: "",
+      contact: "",
+      admissionDate: "",
+    }
   );
 
   const handleChange = (e) => {
