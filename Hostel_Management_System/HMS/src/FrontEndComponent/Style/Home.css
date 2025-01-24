@@ -1,0 +1,287 @@
+/* Global Styles */
+
+
+
+/* News Ticker Section */
+.news-ticker {
+  position: relative;
+  width: 100%;
+  margin-top: 10%;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  z-index: 10; /* Make sure it's above other content */
+}
+
+.news-ticker p {
+  position: absolute;
+  bottom: 0; /* Start from the bottom */
+  width: 100%;
+  margin: 0;
+  animation: scrollUp 10s linear infinite;
+}
+
+/* Keyframes for vertical scrolling */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(100%); /* Start below the viewport */
+  }
+  100% {
+    transform: translateY(-100%); /* End above the viewport */
+  }
+}
+
+
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+body {
+  background-color: #f4f4f4;
+}
+
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Hostel.png') no-repeat center center/cover;
+  padding: 100px 20px;
+  color: #fff;
+  text-align: center;
+  height: 60vh;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn-primary {
+  padding: 10px 20px;
+  background-color: #ff5733;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero .btn-primary:hover {
+  background-color: #c0392b;
+}
+
+/* About Section */
+.about {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  background-color: #fff;
+}
+
+.about-content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.about .btn-secondary {
+  padding: 10px 20px;
+  background-color: #27ae60;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.about .btn-secondary:hover {
+  background-color: #2ecc71;
+}
+
+.about-image img {
+  width: 100%;  
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* Features Section */
+.features {
+  text-align: center;
+
+  background-color: #ecf0f1;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.features-cards {
+  margin:5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Distributes the cards evenly */
+  gap: 20px; /* Optional: Adds spacing between the cards */
+}
+
+.feature-card {
+  flex:  1 1 300px; /* Makes each card take up at least 300px, but allows it to grow if there's space */
+  margin: 0 10px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px); /* Optional: Adds a hover effect */
+}
+
+
+.feature-card img {
+  width:100%;
+  border-radius:10px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.testimonial-card {
+  flex: 1;
+  margin: 0 10px;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card p {
+  font-size: 1.125rem;
+  margin-bottom: 15px;
+}
+
+.testimonial-card span {
+  font-size: 1rem;
+  color: #888;
+}
+
+/* CTA Section */
+.cta {
+  background-color: #e74c3c;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta .btn-primary {
+  padding: 15px 30px;
+  background-color: #fff;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.125rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta .btn-primary:hover {
+  background-color: #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 80%;
+  }
+
+  .features-cards {
+    flex-direction: column;
+  }
+
+  .feature-card {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-cards {
+    flex-direction: column;
+  }
+
+  .testimonial-card {
+    margin-bottom: 20px;
+  }
+}
