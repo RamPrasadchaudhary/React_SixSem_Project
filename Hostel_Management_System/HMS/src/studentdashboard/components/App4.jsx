@@ -1,17 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainDashboard from "./studentdashboard"; //for student main view
-import Payments from "./Payments"; //for payments
-import Complaints from "./complaints"; //for complaints
-function App4() {
+import MainDashboard from "./maindashboard"; // ensure this path is correct
+
+function StudentApp() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainDashboard />} />
-        <Route path="/Payments" element={<Payments />} />
-        <Route path="/Complaints" element={<Complaints />} />
+        {/* Remove any additional routes for now to simplify */}
       </Routes>
     </Router>
   );
 }
 
-export default App4;
+export default StudentApp;
