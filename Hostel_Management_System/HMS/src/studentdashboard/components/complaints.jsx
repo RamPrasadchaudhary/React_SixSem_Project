@@ -2,29 +2,13 @@ import { useState } from "react";
 import "../styles/complaints.css";
 
 const Complaints = () => {
-  // State for complaint tracker
   const [complaints, setComplaints] = useState([
     {
       type: "Maintenance",
       description: "The fan in room 516 is not working properly.",
       status: "In Progress",
     },
-    {
-      type: "Room Cleaning",
-      description: "Room 516 was not cleaned properly last week.",
-      status: "Resolved",
-    },
-    {
-      type: "Food Quality",
-      description: "The food served in the mess yesterday was undercooked.",
-      status: "In Progress",
-    },
-    {
-      type: "Other",
-      description:
-        "The Wi-Fi connection is unstable in the hostel common area.",
-      status: "Pending",
-    },
+    // More complaints here...
   ]);
 
   const [formData, setFormData] = useState({
@@ -32,7 +16,6 @@ const Complaints = () => {
     description: "",
   });
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setComplaints([
@@ -47,7 +30,6 @@ const Complaints = () => {
     alert("Complaint submitted successfully!");
   };
 
-  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -110,11 +92,7 @@ const Complaints = () => {
               </p>
               <p>
                 <strong>Status:</strong>{" "}
-                <span
-                  className={`status-${complaint.status
-                    .toLowerCase()
-                    .replace(" ", "-")}`}
-                >
+                <span className={`status-${complaint.status.toLowerCase()}`}>
                   {complaint.status}
                 </span>
               </p>

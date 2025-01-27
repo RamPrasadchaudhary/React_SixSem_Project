@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../Style/ComplaintPage.css"; // Import the CSS file
 import Heading from "./Heading";
 const ComplaintPage = () => {

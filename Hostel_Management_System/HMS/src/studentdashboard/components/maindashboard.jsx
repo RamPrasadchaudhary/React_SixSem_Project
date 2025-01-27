@@ -35,15 +35,15 @@ const MainDashboard = () => {
       <nav>
         <ul className="navbar">
           <li>
-            <a href="index.html" className="active">
+            <a href="/" className="active">
               Dashboard
             </a>
           </li>
           <li>
-            <a href="payments.html">Payments</a>
+            <a href="/payments">Payments</a>
           </li>
           <li>
-            <a href="complaints.html">Complaints</a>
+            <a href="/complaints">Complaints</a>
           </li>
         </ul>
       </nav>
@@ -51,10 +51,10 @@ const MainDashboard = () => {
       <section id="dashboard">
         {/* Profile Summary Section */}
         <div className="section profile-summary">
-          <a href="edit-profile.html" className="edit-profile-btn">
+          <a href="/edit-profile" className="edit-profile-btn">
             Edit Profile
           </a>
-          <a href="../../index.html" className="logout-btn">
+          <a href="/logout" className="logout-btn">
             Logout
           </a>
           <h2>
@@ -67,7 +67,7 @@ const MainDashboard = () => {
             <strong>Name:</strong> Ashish Raj
           </p>
           <p>
-            <strong>Father Name</strong> Rajesh Kumar Verma
+            <strong>Father Name:</strong> Rajesh Kumar Verma
           </p>
           <p>
             <strong>Room Allotted:</strong> 516
@@ -101,15 +101,15 @@ const MainDashboard = () => {
             <FaLink /> <span className="shiny-text">Quick Links</span>
           </h2>
           <div className="quick-links-container">
-            <a href="payments.html" className="quick-link">
+            <a href="/payments" className="quick-link">
               <FaCalendarCheck />
               <span>View Payment History</span>
             </a>
-            <a href="complaints.html" className="quick-link">
+            <a href="/complaints" className="quick-link">
               <FaClipboardList />
               <span>Check Complaint Status</span>
             </a>
-            <a href="complaints.html" className="quick-link">
+            <a href="/complaints" className="quick-link">
               <FaPencil />
               <span>File a New Complaint</span>
             </a>

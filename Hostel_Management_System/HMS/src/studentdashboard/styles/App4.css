@@ -11,6 +11,7 @@ header {
   color: #fff;
   padding: 1rem;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 /* Navbar styles */
@@ -31,10 +32,19 @@ header {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #007bff;
+  border-radius: 4px;
 }
 
 .navbar a.active {
   text-decoration: underline;
+  background-color: #007bff;
+  border-radius: 4px;
 }
 
 /* Loader styles */
@@ -89,8 +99,37 @@ header {
 
 h2 {
   color: #007bff;
+  text-align: center;
 }
 
+.quick-links-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quick-link {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.quick-link:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background-color: #f4f4f9;
+}
+
+/* Profile section */
 .profile-summary .profile-pic img {
   width: 150px;
   height: 150px;
@@ -116,28 +155,18 @@ h2 {
   background-color: #0056b3;
 }
 
-.quick-links-container {
-  display: flex;
-  gap: 1rem;
+/* Recent Activity */
+.recent-activity ul {
+  list-style: none;
+  padding: 0;
 }
 
-.quick-link {
-  flex: 1;
-  padding: 1rem;
-  text-align: center;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 4px;
-  text-decoration: none;
+.recent-activity li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
 }
 
-.quick-link:hover {
-  background-color: #0056b3;
-}
-
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 1rem 0;
-  background-color: #f4f4f9;
+.recent-activity li span {
+  color: #007bff;
+  font-weight: bold;
 }
