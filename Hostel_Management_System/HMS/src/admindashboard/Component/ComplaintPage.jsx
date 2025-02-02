@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import "../Style/ComplaintPage.css";
+=======
+import { useState } from "react";
+import "../Style/ComplaintPage.css"; // Import the CSS file
+>>>>>>> 5892cce2e1bcddae8fb517318292614160947c2f
 import Heading from "./Heading";
 const complaintsData = [
   {
