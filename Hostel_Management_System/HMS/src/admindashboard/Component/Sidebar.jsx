@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "../Style/Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,59 +15,64 @@ import {
   faCogs,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Sidebar = ({ className, onSelect }) => {
+const Sidebar = ({ className, toggleSidebar }) => {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${className}`}>
       <div className="sidebar-brand">
         <FontAwesomeIcon icon={faUserShield} /> Hostel Admin
       </div>
-      <ul className={`"sidebar-menu"${className}`}>
-        <li className="sidebar-item" onClick={() => onSelect("MainContent")}>
-          <button className="sidebar-link">
+      <ul className="sidebar-menu">
+        <li className="sidebar-item">
+          <NavLink to="/" exact className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Student")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/student" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faUserGraduate} /> Manage Students
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("ManageStaff")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/manage-staff" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faUserTie} /> Manage Staff
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("ManageWardens")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/manage-wardens" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faUserCog} /> Manage Wardens
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("RoomManagement")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/room-management" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faBed} /> Manage Rooms
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("ComplaintPage")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/complaints" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faExclamationTriangle} /> Complaints
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Payment")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/payment" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faCreditCard} /> Payments
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Report")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/report" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faFileAlt} /> Reports
-          </button>
+          </NavLink>
         </li>
-        <li className="sidebar-item" onClick={() => onSelect("Setting")}>
-          <button className="sidebar-link">
+        <li className="sidebar-item">
+          <NavLink to="/setting" className="sidebar-link" activeClassName="active">
             <FontAwesomeIcon icon={faCogs} /> Settings
-          </button>
+          </NavLink>
         </li>
       </ul>
+
+      {/* Toggle button for mobile view */}
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        ☰
+      </button>
     </aside>
   );
 };

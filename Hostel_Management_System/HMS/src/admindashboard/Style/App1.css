@@ -1,69 +1,80 @@
+/* General styles for the app container */
 .app-container {
   display: flex;
-  height: 100vh; /* Ensure full viewport height */
-  overflow: hidden; /* Prevent scrolling when the sidebar is toggled */
+  position: relative;
+  height: 100vh; /* Full viewport height */
 }
 
+/* Sidebar Styles */
+.sidebar {
+  width: 250px; /* Sidebar width */
+  background-color: #3498db; /* Blue sidebar background */
+  color: white;
+  padding: 20px;
+  position: fixed; /* Fix the sidebar on the left */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%; /* Full height of the viewport */
+  transition: transform 0.3s ease; /* Smooth transition for sliding */
+  transform: translateX(0); /* Default state: visible */
+}
+
+/* Sidebar hidden when toggled */
+.sidebar.hide {
+  transform: translateX(-100%); /* Move it completely out of view */
+}
+
+/* Sidebar visible */
+.sidebar.show {
+  transform: translateX(0);
+}
+
+/* Sidebar toggle button */
 .sidebar-toggle {
-  display: none; /* Hidden by default */
-  position: fixed;
+  background-color: transparent;
+  border: none;
+  color: #3498db;
+  font-size: 30px;
+  position: absolute;
   top: 20px;
   left: 20px;
-  z-index: 2000;
-  background-color: #007bff; /* Matches the sidebar theme */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  z-index: 110; /* Place the button above the sidebar */
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  display: none; /* Hidden by default */
 }
 
-.sidebar-toggle:hover {
-  background-color: #0056b3; /* Slightly darker on hover */
+.sidebar-toggle.show {
+  display: block; /* Show button when sidebar is collapsed */
 }
 
-@media (max-width: 768px) {
-  .sidebar-toggle {
-    display: block; 
-    width:50px;/* Show toggle button on smaller screens */
-  }
-}
-
-.sidebar {
-  position: fixed;
-  left: -250px; /* Hidden initially */
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background-color: #007bff;
-  color: white;
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-
-.sidebar.show {
-  left: 0; /* Slide in the sidebar when visible */
-}
-
+/* Main Content Styling */
 .main-content {
-  flex: 1;
-  margin-left: 0; /* Default margin for smaller screens */
+  margin-left: 275px; /* Margin to prevent content from overlapping with sidebar */
   padding: 20px;
-  transition: margin-left 0.3s ease;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease; /* Smooth transition when the sidebar is toggled */
+  background-color: #f4f4f4; /* Light background color */
+  height: 100vh; /* Ensure it takes full height */
+  overflow-y: auto; /* Allow vertical scrolling */
 }
 
+/* When sidebar is hidden, shift main content to the left */
 .main-content.shifted {
-  margin-left: 250px; /* Shift content to the right when sidebar is visible */
+  margin-left: 0; /* Remove left margin when sidebar is collapsed */
 }
 
-@media (min-width: 769px) {
+/* Responsive styling */
+@media (max-width: 768px) {
   .sidebar {
-    left: 0; /* Sidebar is always visible on larger screens */
+    transform: translateX(-100%); /* Hide sidebar by default on smaller screens */
   }
 
-  .main-content {
-    margin-left:60px; /* Push content to the right to accommodate sidebar */
+  .main-content.shifted {
+    margin-left: 0; /* Remove left margin for smaller screens */
+  }
+
+  .sidebar-toggle {
+    display: block; /* Show toggle button on smaller screens */
   }
 }

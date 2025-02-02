@@ -1,10 +1,3 @@
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Light background color */
-}
 
 .container {
     max-width: 1000px; /* Maximum width for the container */
@@ -14,6 +7,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border-radius: 8px; /* Rounded corners */
     box-sizing: border-box; /* Include padding and border in width/height */
+
+    margin-left:275px; /* Reserve space for sidebar */
 }
 
 h1 {

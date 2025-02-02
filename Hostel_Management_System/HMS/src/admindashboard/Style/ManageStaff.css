@@ -1,10 +1,10 @@
 /* Layout Wrapper to Account for Sidebar */
 .manage-staff-wrapper {
     display: flex;
-    margin-left:50px; /* Reserve space for sidebar */
+    margin-left:275px; /* Reserve space for sidebar */
     padding: 20px;
     background-color: #f9fafb; /* Light background */
-    min-height: 100vh; /* Full page height */
+    min-height: auto; /* Full page height */
     box-sizing: border-box;
   }
   

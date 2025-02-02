@@ -1,6 +1,7 @@
 import React from "react";
 import "../Style/MainContent.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Heading from "./Heading";
 import {
   faUsers,
   faUserGraduate,
@@ -11,10 +12,14 @@ import {
 
 const MainContent = () => {
   return (
+    <>
+      <Heading
+          title="Student Record"
+          subtitle="Manage all your student data in one place"
+        />
+     
     <div className="main-content">
-      <header>
-        <h1>Dashboard</h1>
-      </header>
+     
 
       <div className="dashboard-overview">
         <div className="overview-card">
@@ -52,6 +57,7 @@ const MainContent = () => {
             <p>Maintenance Requests</p>
           </div>
         </div>
+        
       </div>
 
       <div className="section-content">
@@ -59,6 +65,7 @@ const MainContent = () => {
         <p>Select a menu item from the left to get started.</p>
       </div>
     </div>
+    </>
   );
 };
 

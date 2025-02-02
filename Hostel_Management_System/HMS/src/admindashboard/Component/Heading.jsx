@@ -6,7 +6,6 @@ const Heading = ({ title, subtitle }) => {
     <div className="heading-container">
       <h3 className="heading-title">{title}</h3>
       {subtitle && <p className="heading-subtitle">{subtitle}</p>}
-      
     </div>
   );
 };
