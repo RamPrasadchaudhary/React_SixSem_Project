@@ -14,7 +14,7 @@ const MainContent = () => {
   return (
     <>
       <Heading
-          title="Student Record"
+          title="Admin Record"
           subtitle="Manage all your student data in one place"
         />
      
