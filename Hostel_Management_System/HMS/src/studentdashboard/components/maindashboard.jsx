@@ -1,13 +1,7 @@
 import "../styles/style.css";
-import {
-  FaUser,
-  FaBullhorn,
-  FaLink,
-  FaCalendarCheck,
-  FaClipboardList,
-  FaPencil,
-  FaClock,
-} from "react-icons/fa";
+import { FaUser, FaBullhorn, FaLink, FaCalendarCheck, FaClipboardList, FaPencilAlt, FaClock } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
 
 const MainDashboard = () => {
   return (
@@ -35,15 +29,15 @@ const MainDashboard = () => {
       <nav>
         <ul className="navbar">
           <li>
-            <a href="/" className="active">
+            <Link to="/" className="active">
               Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/payments">Payments</a>
+            <Link to="/payments">Payments</Link>
           </li>
           <li>
-            <a href="/complaints">Complaints</a>
+            <Link to="/complaints">Complaints</Link>
           </li>
         </ul>
       </nav>
@@ -51,17 +45,17 @@ const MainDashboard = () => {
       <section id="dashboard">
         {/* Profile Summary Section */}
         <div className="section profile-summary">
-          <a href="/edit-profile" className="edit-profile-btn">
+          <Link to="/edit-profile" className="edit-profile-btn">
             Edit Profile
-          </a>
-          <a href="/logout" className="logout-btn">
+          </Link>
+          <Link to="/logout" className="logout-btn">
             Logout
-          </a>
+          </Link>
           <h2>
             <FaUser /> <span className="shiny-text">Profile Details</span>
           </h2>
           <div className="profile-pic">
-            <img src="./Components/Images/user.jpeg" alt="Student Picture" />
+            <img src="/Images/user.jpeg" alt="Student Picture" />
           </div>
           <p>
             <strong>Name:</strong> Ashish Raj
@@ -101,18 +95,18 @@ const MainDashboard = () => {
             <FaLink /> <span className="shiny-text">Quick Links</span>
           </h2>
           <div className="quick-links-container">
-            <a href="/payments" className="quick-link">
+            <Link to="/payments" className="quick-link">
               <FaCalendarCheck />
               <span>View Payment History</span>
-            </a>
-            <a href="/complaints" className="quick-link">
+            </Link>
+            <Link to="/complaints" className="quick-link">
               <FaClipboardList />
               <span>Check Complaint Status</span>
-            </a>
-            <a href="/complaints" className="quick-link">
-              <FaPencil />
+            </Link>
+            <Link to="/complaints" className="quick-link">
+              <FaPencilAlt />
               <span>File a New Complaint</span>
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainDashboard from "./maindashboard";
-import Complaints from "./complaints";
+import Complaints from "./Complaints";
 import Payments from "./Payments";
 import "../styles/App4.css";
 
