@@ -7,7 +7,7 @@ const MainDashboard = () => {
   return (
     <div>
       {/* Loader HTML */}
-      <div className="loader-wrapper">
+      {/* <div className="loader-wrapper">
         <div className="card">
           <div className="loader">
             <p>loading</p>
@@ -19,7 +19,7 @@ const MainDashboard = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <header>

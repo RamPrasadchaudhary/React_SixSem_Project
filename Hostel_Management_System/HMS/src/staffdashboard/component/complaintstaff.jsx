@@ -1,74 +1,55 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/complaintstyles.css";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/styles.css";
 
-const complaintsData = [
+const Complaintstaff = () => {
+  // Sample complaint data (replace with API data)
+  const [complaints] = useState([
     { id: 201, room: "Room 101", status: "Pending", date: "2024-08-26", time: "09:30 AM" },
     { id: 202, room: "Room 102", status: "Resolved", date: "2024-08-25", time: "11:00 AM" },
     { id: 203, room: "Room 103", status: "In Progress", date: "2024-08-24", time: "02:15 PM" },
-    { id: 204, room: "Room 104", status: "Pending", date: "2024-08-26", time: "09:40 AM" },
-    { id: 205, room: "Room 105", status: "Pending", date: "2024-08-26", time: "10:30 AM" },
-  ];
+  ]);
 
-  
-function Complaintstaff() {
-  const [complaints, setComplaints] = useState(complaintsData);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedDate, setSelectedDate] = useState("");
-  const navigate = useNavigate();
-
-  const handleSearch = () => {
-    const filteredData = complaintsData.filter(
-      (complaint) =>
-        complaint.id.toString().includes(searchTerm) &&
-        (selectedDate ? complaint.date === selectedDate : true)
-    );
-    setComplaints(filteredData);
-  };
-
-  const handleReset = () => {
-    setSearchTerm("");
-    setSelectedDate("");
-    setComplaints(complaintsData);
-  };
-
-  const handleDelete = (id) => {
-    const updatedComplaints = complaints.filter((complaint) => complaint.id !== id);
-    setComplaints(updatedComplaints);
-  };
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
 
   return (
-    <div className="complaints-page">
-      <h2 className="page-title">Complaints List</h2>
+    <section id="complaints-by-date">
+      {/* Date Selection Section */}
+      <div className="section date-selector">
+        <h2>
+          <i className="fa-solid fa-calendar-day"></i>
+          <span className="shiny-text">Select Date</span>
+        </h2>
+        <form id="date-form">
+          <label htmlFor="date">Choose a date:</label>
+          <input type="date" id="date" name="date" />
+          <button type="button">View Complaints</button>
+          <button type="button">Reset</button>
+        </form>
+      </div>
 
-      <div className="filter-section">
-        <div className="filter-group">
-          <label className="filter-label">Select Date:</label>
-          <input
-            type="date"
-            className="filter-input"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
-          <button className="filter-btn" onClick={handleSearch}>View Complaints</button>
-          <button className="filter-btn reset" onClick={handleReset}>Reset</button>
-        </div>
-
-        <div className="search-group">
-          <label className="search-label">Search by ID:</label>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Enter Complaint ID"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="search-btn" onClick={handleSearch}>Search</button>
-          <button className="search-btn reset" onClick={handleReset}>Reset</button>
+      {/* Search by Complaint ID Section */}
+      <div className="section search-bar">
+        <h2>
+          <i className="fa-solid fa-search"></i>
+          <span className="shiny-text">Search by ID</span>
+        </h2>
+        <div id="search-area">
+          <label htmlFor="search-id">Complaint ID:</label>
+          <input type="number" id="search-id" name="search-id" placeholder="Enter Complaint ID" min="0" />
+          <button>Search</button>
+          <button>Reset</button>
         </div>
       </div>
 
-      <div className="table-section">
+      {/* Complaints Table */}
+      <div className="section complaints-list">
+        <h2>
+          <i className="fa-solid fa-list"></i>
+          <span className="shiny-text">Complaints List</span>
+        </h2>
         <table className="complaints-table">
           <thead>
             <tr>
@@ -77,7 +58,7 @@ function Complaintstaff() {
               <th>Status</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Actions</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
@@ -85,32 +66,32 @@ function Complaintstaff() {
               <tr key={complaint.id}>
                 <td>{complaint.id}</td>
                 <td>{complaint.room}</td>
-                <td className={`status ${complaint.status.toLowerCase()}`}>
+                <td className={`status-${complaint.status.toLowerCase().replace(" ", "-")}`}>
                   {complaint.status}
                 </td>
                 <td>{complaint.date}</td>
                 <td>{complaint.time}</td>
                 <td>
-                  <button
-                    className="details-btn"
-                    onClick={() => navigate(`/complaints/${complaint.id}`)}
-                  >
+                  <Link to={`/complaints/${complaint.id}`} className="details-btn">
                     View Details
-                  </button>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(complaint.id)}
-                  >
-                    Delete
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </div>
+
+      {/* Pagination */}
+      <div className="pagination">
+        <button onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}>Previous</button>
+        <span>
+          Page <input type="number" value={currentPage} min="1" max={totalPages} readOnly /> of {totalPages}
+        </span>
+        <button onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}>Next</button>
+      </div>
+    </section>
   );
-}
+};
 
 export default Complaintstaff;

@@ -1,16 +1,47 @@
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import "../styles/styles.css"; // Import your CSS
 
-import "../styles/Header.css";
-import { Link } from "react-router-dom";
-function Header() {
+const Header = ({ title }) => {
+  const location = useLocation(); // Get current route
+
   return (
-    <header className="header">
-    <h1 className="header-title">Complaints Management</h1>
-    <nav className="header-nav">
-      <Link to="/" className="nav-link">Dashboard</Link>
-      <Link to="/complaints" className="nav-link">Complaints</Link>
-    </nav>
-  </header>
+    <div>
+      {/* Loader Section */}
+      {/* <div className="loader-wrapper">
+        <div className="card">
+          <div className="loader">
+            <p>Loading</p>
+            <div className="words">
+              <span className="word">Dashboard</span>
+              <span className="word">Complaints</span>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      {/* Header */}
+      <header>
+        <h1>{title}</h1>
+      </header>
+
+      {/* Navigation Bar */}
+      <nav>
+        <ul className="navbar">
+          <li>
+            <Link to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""}>
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link to="/complaints" className={location.pathname === "/complaints" ? "active" : ""}>
+              Complaints
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
-}
+};
 
 export default Header;
