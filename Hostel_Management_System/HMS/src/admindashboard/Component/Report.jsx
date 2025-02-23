@@ -19,7 +19,7 @@ const Report = () => {
     <>
     <div>
       <Heading
-        title="Monthly Report "
+        title="Monthly Hostel Report "
         subtitle="This is a report"
       />
     </div>

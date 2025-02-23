@@ -4,24 +4,21 @@ import '../Style/Payment.css';
 import Heading from "./Heading";
 
 const Payment = () => {
-  // Static mock data directly in state
+  // Updated mock data based on the table structure
   const [payments] = React.useState([
-    { month: 'January 2024', amountDue: 15000, status: 'Paid' },
-    { month: 'February 2024', amountDue: 15000, status: 'Pending' },
-    { month: 'March 2024', amountDue: 15000, status: 'Pending' },
+    { id: 1, name: 'John Doe', dueAmount: 15000, paidAmount: 15000, remainingAmount: 0, lastPaymentDate: '2024-01-05', status: 'Paid' },
+    { id: 2, name: 'Jane Smith', dueAmount: 15000, paidAmount: 10000, remainingAmount: 5000, lastPaymentDate: '2024-02-10', status: 'Pending' },
+    { id: 3, name: 'Robert Brown', dueAmount: 15000, paidAmount: 5000, remainingAmount: 10000, lastPaymentDate: '2024-03-15', status: 'Pending' },
   ]);
 
-  // Calculate total balance directly
-  const totalBalance = payments.reduce(
-    (sum, payment) => (payment.status === 'Pending' ? sum + payment.amountDue : sum),
-    0
-  );
+  // Calculate total balance due
+  const totalBalance = payments.reduce((sum, payment) => sum + payment.remainingAmount, 0);
 
   return (
     <>
       <Heading
-        title="Monthly Dues"
-        subtitle="View and manage your monthly payments"
+        title="Manage Payment"
+        subtitle="View and manage your payments"
       />
 
       <div className="main-content">
@@ -30,18 +27,24 @@ const Payment = () => {
           <table>
             <thead>
               <tr>
-                <th>Month</th>
-                <th>Amount Due</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>S_ID</th>
+                <th>Name</th>
+                <th>Due Amount</th>
+                <th>Paid Amount</th>
+                <th>Remaining Amount</th>
+                <th>Last P. Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {payments.map((payment, index) => (
-                <tr key={index}>
-                  <td>{payment.month}</td>
-                  <td>₹{payment.amountDue}</td>
-                  <td>{payment.status}</td>
+              {payments.map((payment) => (
+                <tr key={payment.id}>
+                  <td>{payment.id}</td>
+                  <td>{payment.name}</td>
+                  <td>₹{payment.dueAmount}</td>
+                  <td>₹{payment.paidAmount}</td>
+                  <td>₹{payment.remainingAmount}</td>
+                  <td>{payment.lastPaymentDate}</td>
                   <td className="actions">
                     {payment.status === 'Paid' ? (
                       <a href="#" className="download-receipt">Download Receipt</a>

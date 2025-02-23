@@ -8,7 +8,7 @@
     border-radius: 8px; /* Rounded corners */
     box-sizing: border-box; /* Include padding and border in width/height */
 
-    margin-left:275px; /* Reserve space for sidebar */
+    margin-left:300px; /* Reserve space for sidebar */
 }
 
 h1 {
@@ -20,13 +20,14 @@ h1 {
 /* Search Bar */
 .search-bar {
     display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between elements */
+    justify-content: space-around; /* Space between elements */
     margin-bottom: 20px; /* Margin below the search bar */
     flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
     gap: 10px; /* Gap between elements */
 }
 
 .search-bar input {
+   
     flex: 1; /* Allow input to grow */
     padding: 10px; /* Padding inside the input */
     border: 1px solid #ccc; /* Light border */
@@ -36,6 +37,8 @@ h1 {
 
 .search-button,
 .reset-button {
+    width:200px;
+
     padding: 10px 15px; /* Padding for buttons */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
@@ -71,8 +74,10 @@ h1 {
 
 /* Add Student Link */
 .add-student-link {
+    width:200px;
+    margin: auto;
     text-align: right; /* Align link to the right */
-    margin-bottom: 20px; /* Margin below the link */
+    margin-bottom: 10px; /* Margin below the link */
 }
 
 .add-student-button {

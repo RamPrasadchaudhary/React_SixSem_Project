@@ -3,7 +3,7 @@
   position: relative; /* Ensure it's aligned properly */
   margin: 0; /* Remove margins that might restrict full width */
   margin-top: 40px;
-  margin-left: 260px;
+  margin-left: 270px;
   padding: 20px;
   width:1175px;/* Full width of its parent container */
   max-width: 100%; /* Ensure it doesn't overflow */
@@ -30,8 +30,13 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .heading-container{
+    max-width: 100%;
+    margin-left: 0px;
+  }
   .heading-container .heading-title {
     font-size: 2rem; /* Adjust title font size for tablets */
+   
   }
 
   .heading-container .heading-subtitle {
@@ -40,8 +45,14 @@
 }
 
 @media (max-width: 480px) {
+
+  .heading-container{
+    max-width: 100%;
+    margin-left: 0px;
+  }
   .heading-container .heading-title {
     font-size: 1.8rem; /* Smaller font size for mobile devices */
+    margin-left:0px;
   }
 
   .heading-container .heading-subtitle {

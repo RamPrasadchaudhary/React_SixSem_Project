@@ -16,18 +16,14 @@
   left: 0;
   bottom: 0;
   height: 100%; /* Full height of the viewport */
-  transition: transform 0.3s ease; /* Smooth transition for sliding */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for sliding */
   transform: translateX(0); /* Default state: visible */
+  z-index: 1000; /* Ensure it's above other content */
 }
 
 /* Sidebar hidden when toggled */
 .sidebar.hide {
   transform: translateX(-100%); /* Move it completely out of view */
-}
-
-/* Sidebar visible */
-.sidebar.show {
-  transform: translateX(0);
 }
 
 /* Sidebar toggle button */
@@ -36,26 +32,22 @@
   border: none;
   color: #3498db;
   font-size: 30px;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 110; /* Place the button above the sidebar */
+  z-index: 1100; /* Place the button above the sidebar */
   cursor: pointer;
-  display: none; /* Hidden by default */
-}
-
-.sidebar-toggle.show {
-  display: block; /* Show button when sidebar is collapsed */
+  display: none; /* Hide by default on larger screens */
 }
 
 /* Main Content Styling */
 .main-content {
-  margin-left: 275px; /* Margin to prevent content from overlapping with sidebar */
+  margin-left: 250px; /* Adjusted to match sidebar width */
   padding: 20px;
   flex-grow: 1;
-  transition: margin-left 0.3s ease; /* Smooth transition when the sidebar is toggled */
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition */
   background-color: #f4f4f4; /* Light background color */
-  height: 100vh; /* Ensure it takes full height */
+  height: 100vh; /* Full height */
   overflow-y: auto; /* Allow vertical scrolling */
 }
 
@@ -65,16 +57,25 @@
 }
 
 /* Responsive styling */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .sidebar {
     transform: translateX(-100%); /* Hide sidebar by default on smaller screens */
+    position: fixed;
   }
 
-  .main-content.shifted {
-    margin-left: 0; /* Remove left margin for smaller screens */
+  .sidebar.show {
+    transform: translateX(0); /* Show sidebar when toggled */
+  }
+
+  .main-content {
+    margin-left: 0; /* Ensure content does not shift */
   }
 
   .sidebar-toggle {
-    display: block; /* Show toggle button on smaller screens */
+    display: block; /* Always show toggle button on smaller screens */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0; /* Remove margin from headings in responsive screens */
   }
 }
