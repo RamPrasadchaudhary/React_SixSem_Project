@@ -2,7 +2,7 @@
 .sidebar {
   width: 250px; /* Default sidebar width */
   color: white;
-  padding: 20px;
+  padding: 10px;
   height: 100vh;
   transition: transform 0.3s ease-in-out;
   position: fixed;
