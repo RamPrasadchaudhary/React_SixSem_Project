@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 
 
-
+// Ashish postgres pgadmin username and password
 const sequelize = new Sequelize('postgres', 'postgres', 'postgresql', {
     host: 'localhost',
     dialect: 'postgres'
