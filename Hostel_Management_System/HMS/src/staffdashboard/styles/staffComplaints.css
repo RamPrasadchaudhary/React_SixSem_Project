@@ -1,0 +1,123 @@
+/* staffComplaints.css */
+.complaints-container {
+    font-family: Arial, sans-serif;
+    background-color: #f8f5f5;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .complaints-header {
+    background-color: #2f7df6;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .complaints-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #2f7df6;
+    padding: 10px;
+  }
+ 
+  .complaints-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+  }
+  
+  .complaints-nav a.active {
+    background-color: white;
+    color: #2f7df6;
+  }
+  .date-filter{
+    
+    justify-content: flex-start;
+  }
+  .date-filter input{
+    
+width:100%;
+height:5vh;
+border-radius: 5px;
+margin-bottom: 10px;;
+
+  }
+  .search-filter{
+    display: flex;
+    justify-content: left;
+    margin: 10px 0;
+    gap:50px;
+  }
+ 
+  .search-filter button{
+    margin-top: 10px;
+    margin-left: 5px;
+    width:10%;
+  }
+  .search-filter input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 40%;
+    border-radius: 5px;
+  }
+  .filter-section, .complaints-list {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .complaints-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .complaints-list th, .complaints-list td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .resolved {
+    color: green;
+  }
+  
+  .in-progress {
+    color: orange;
+  }
+  
+  .pending {
+    color: red;
+  }
+  
+  .view-button {
+    background-color: #2f7df6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination button {
+    background-color: #2f7df6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

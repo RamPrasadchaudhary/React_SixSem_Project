@@ -1,19 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Header";
-import Complaintstaff from "./Complaintstaff";
-import Dashboard from "./dashboard1";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import StaffDashboard from "./staffdashboard";
+import StaffComplaints from "./staffcomplaint";
+import "../styles/navbar.css";
+
 function App3() {
   return (
     <Router>
-      <Header />
+      {/* <div className="navbar">
+        <Link to="/dashboard" className="nav-link">Dashboard</Link>
+        <Link to="/complaints" className="nav-link">Complaints</Link>
+      </div> */}
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/complaints-details" element={<Complaintstaff />} />
+        <Route path="/dashboard" element={<StaffDashboard />} />
+        <Route path="/complaints" element={<StaffComplaints />} />
+        <Route path="/" element={<StaffDashboard />} />
       </Routes>
     </Router>
-
-
-
   );
 }
 
