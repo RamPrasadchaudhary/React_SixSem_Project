@@ -73,11 +73,12 @@ h2 {
   display: block;
   margin: 1rem auto;
 }
-/* Logout Button Styling */
-.logout-btn {
+
+/* Edit Profile Button Styling */
+.button-container .edit-profile-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #007bff;
+  background-color: #28a745; /* Green color */
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -86,11 +87,27 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-.logout-btn:hover {
-  background-color: #0056b3;
+.button-container .edit-profile-btn:hover {
+  background-color: #218838; /* Darker green on hover */
 }
-.edit-profile-btn,
-.edit-profile-btn:hover,
+
+/* Logout Button Styling */
+.button-container .logout-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #dc3545; /* Red color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container .logout-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
 .quick-links-container {
   display: flex;
   gap: 1rem;

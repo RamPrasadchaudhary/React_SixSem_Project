@@ -7,7 +7,7 @@ import {
   FaClipboardList,
   FaPencilAlt,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "./layout";
 
 const MainDashboard = () => {
