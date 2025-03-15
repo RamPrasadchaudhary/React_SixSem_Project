@@ -1,52 +1,6 @@
-/* General styles */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  background-color: #f4f4f9;
-}
-
-header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 1rem 2rem;
-  text-align: center;
-}
-
-.navbar {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #0056b3;
-}
-
-.navbar li {
-  margin: 0 1rem;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-
-.navbar a.active {
-  text-decoration: underline;
-}
-
 /* Payments section */
-.payments-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  color: #007bff;
+.content {
+  margin: 2rem 0;
 }
 
 table {
@@ -109,12 +63,4 @@ tbody td {
 
 .total-balance .button:hover {
   background-color: #0056b3;
-}
-
-/* Footer styles */
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 1rem 0;
-  background-color: #f4f4f9;
 }
