@@ -1,90 +1,98 @@
 .dashboard-container {
-    font-family: Arial, sans-serif;
-    background-color: #f8f5f5;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f8f5f5;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
 }
 
 .dashboard-header {
-    background-color: #2f7df6;
-    color: white;
-    padding: 15px;
-    font-size: 24px;
-    font-weight: bold;
-    display: inline-block;
-    width:100%;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #2f7df6;
+  color: white;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dashboard-nav a {
-    color:white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
 }
 
 .dashboard-nav a:hover {
-    background-color: white;
-    color: #2f7df6;
+  background-color: white;
+  color: #2f7df6;
 }
+/* Logout Button Styling */
 .logout-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-.logout {
-    background-color: red;
-    color:white;
-    margin-top: 10px;
-    border: none;
-    font-size: 16px;
-    width:5%;
-    border-radius: 5px;
-    bottom: 20px;
-    cursor: pointer;
-    
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
+.logout {
+  background-color: #e40000; /* Red color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
 
+.logout:hover {
+  background-color: #f30018; /* Darker red on hover */
+}
 
-.profile-card, .complaint-overview, .recent-complaints {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.profile-card,
+.complaint-overview,
+.recent-complaints {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 
-.complaint-overview table, .recent-complaints table {
-    width: 100%;
-    border-collapse: collapse;
+.complaint-overview table,
+.recent-complaints table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.complaint-overview th, .recent-complaints th, .complaint-overview td, .recent-complaints td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+.complaint-overview th,
+.recent-complaints th,
+.complaint-overview td,
+.recent-complaints td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
 }
 
 .resolved {
-    color: green;
+  color: green;
 }
 
 .in-progress {
-    color: orange;
+  color: orange;
 }
 
 .pending {
-    color: red;
+  color: red;
 }
-    

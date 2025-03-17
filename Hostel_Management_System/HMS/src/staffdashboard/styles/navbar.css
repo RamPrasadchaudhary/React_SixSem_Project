@@ -1,22 +1,57 @@
 /* navbar.css */
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f7df6;
+  padding: 15px 20px;
+}
+
+.navbar h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.nav-links a.active {
+  background-color: white;
+  color: #2f7df6;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none; /* navbar.css */
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #2f7df6;
     padding: 15px 20px;
   }
-  
+
   .navbar h1 {
     color: white;
     font-size: 24px;
     margin: 0;
   }
-  
+
   .nav-links {
     display: flex;
   }
-  
+
   .nav-links a {
     color: white;
     text-decoration: none;
@@ -24,61 +59,25 @@
     margin: 0 10px;
     border-radius: 5px;
   }
-  
+
   .nav-links a.active {
     background-color: white;
     color: #2f7df6;
   }
-  
+
   .logout-button {
     background-color: red;
     color: white;
-    border: none;/* navbar.css */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #2f7df6;
-      padding: 15px 20px;
-    }
-    
-    .navbar h1 {
-      color: white;
-      font-size: 24px;
-      margin: 0;
-    }
-    
-    .nav-links {
-      display: flex;
-    }
-    
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border-radius: 5px;
-    }
-    
-    .nav-links a.active {
-      background-color: white;
-      color: #2f7df6;
-    }
-    
-    .logout-button {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 12px;
-      position: absolute;
-      right: 20px;
-      top: 15px;
-    }
-    padding: 8px 15px;
+    border: none;
+    padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
   }
-  
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}

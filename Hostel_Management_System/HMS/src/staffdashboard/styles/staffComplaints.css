@@ -1,123 +1,94 @@
-/* staffComplaints.css */
-.complaints-container {
-    font-family: Arial, sans-serif;
-    background-color: #f8f5f5;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .complaints-header {
-    background-color: #2f7df6;
-    color: white;
-    padding: 15px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .complaints-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #2f7df6;
-    padding: 10px;
-  }
- 
-  .complaints-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 5px;
-  }
-  
-  .complaints-nav a.active {
-    background-color: white;
-    color: #2f7df6;
-  }
-  .date-filter{
-    
-    justify-content: flex-start;
-  }
-  .date-filter input{
-    
-width:100%;
-height:5vh;
-border-radius: 5px;
-margin-bottom: 10px;;
+.staff-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f5f5;
+}
 
-  }
-  .search-filter{
-    display: flex;
-    justify-content: left;
-    margin: 10px 0;
-    gap:50px;
-  }
- 
-  .search-filter button{
-    margin-top: 10px;
-    margin-left: 5px;
-    width:10%;
-  }
-  .search-filter input{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    width: 40%;
-    border-radius: 5px;
-  }
-  .filter-section, .complaints-list {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .complaints-list table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .complaints-list th, .complaints-list td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .resolved {
-    color: green;
-  }
-  
-  .in-progress {
-    color: orange;
-  }
-  
-  .pending {
-    color: red;
-  }
-  
-  .view-button {
-    background-color: #2f7df6;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .pagination button {
-    background-color: #2f7df6;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
+.staff-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.date-filter,
+.search-filter,
+.complaints-list {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.date-filter h2,
+.search-filter h2,
+.complaints-list h2 {
+  color: #2f7df6;
+  margin-bottom: 15px;
+}
+
+.date-filter input,
+.search-filter input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.date-filter button,
+.search-filter button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2f7df6;
+  color: white;
+  cursor: pointer;
+}
+
+.date-filter button:hover,
+.search-filter button:hover {
+  background-color: #0056b3;
+}
+
+.complaints-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.complaints-list th,
+.complaints-list td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.in-progress {
+  color: orange;
+}
+
+.pending {
+  color: red;
+}
+
+.resolved {
+  color: green;
+}
+
+.view-button {
+  background-color: #2f7df6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.view-button:hover {
+  background-color: #0056b3;
+}

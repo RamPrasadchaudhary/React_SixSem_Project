@@ -1,0 +1,11 @@
+.staff-footer {
+  background-color: #2f7df6;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+.staff-footer p {
+  margin: 5px 0;
+}
