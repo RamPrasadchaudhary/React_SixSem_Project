@@ -41,7 +41,7 @@ const MainDashboard = () => {
               <FaUser /> <span className="shiny-text">Profile Details</span>
             </h2>
             <div className="profile-pic">
-              <img src="/Images/user.jpeg" alt="Student Picture" />
+              <img src="/kane.jpg" alt="Profile" />
             </div>
             <p>
               <strong>Name:</strong> Ashish Kumar Sah

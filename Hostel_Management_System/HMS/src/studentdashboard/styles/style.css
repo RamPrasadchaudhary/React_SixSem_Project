@@ -67,20 +67,26 @@ h2 {
 
 /* Profile Picture Styling */
 .profile-summary .profile-pic {
-  width: 75px; /* Set width */
-  height: 75px; /* Set height (must match width for a perfect circle) */
+  width: 100px; /* Set width */
+  height: 100px; /* Set height (must match width for a perfect circle) */
   border-radius: 50%; /* Make it circular */
   overflow: hidden; /* Ensure the image stays within the circle */
   margin: 1rem auto; /* Center the image */
   border: 3px solid #007bff; /* Optional: Add a border */
+  position: relative; /* For positioning the image */
 }
 
-.profile-summary .profile-pic img {
-  width: 100%; /* Ensure the image fills the container */
-  height: 100%; /* Ensure the image fills the container */
-  object-fit: cover; /* Ensure the image covers the entire circle */
+.profile-summary .profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 1rem auto;
+  border: 3px solid #252a31;
+  background-image: url("/kane.jpg"); /* Set the image as a background */
+  background-size: cover; /* Ensure the image covers the circle */
+  background-position: center; /* Center the image */
 }
-
 /* Edit Profile Button Styling */
 .button-container .edit-profile-btn {
   display: inline-block;
