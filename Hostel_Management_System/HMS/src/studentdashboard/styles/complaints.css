@@ -1,106 +1,61 @@
-/* General styles */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  background-color: #f4f4f9;
-}
-
-/* Header styles */
-header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 1rem 2rem;
-  text-align: center;
-}
-
-/* Navbar styles */
-.navbar {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #0056b3;
-}
-
-.navbar li {
-  margin: 0 1rem;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-
-.navbar a.active {
-  text-decoration: underline;
-}
-
 /* Complaints section */
-.complaints-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#complaints {
+  margin: 2rem 0;
 }
 
-h2 {
-  color: #007bff;
+#complaint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center; /* Center the form items horizontally */
 }
 
-label {
-  display: block;
-  margin: 0.5rem 0 0.2rem;
+#complaint-form label {
   font-weight: bold;
 }
 
-select,
-textarea,
-button {
-  width: 100%;
+#complaint-form select,
+#complaint-form textarea {
   padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
   border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%; /* Ensure inputs take full width */
+  max-width: 400px; /* Limit the width of inputs */
 }
 
-button {
+/* Submit Button Styling */
+#complaint-form button {
   background-color: #007bff;
-  color: white;
+  color: #fff;
+  padding: 0.5rem 1rem; /* Reduced padding */
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 0.9rem; /* Smaller font size */
+  width: auto; /* Auto width to fit content */
+  margin-top: 1rem; /* Add some space above the button */
 }
 
-button:hover {
+#complaint-form button:hover {
   background-color: #0056b3;
 }
 
 .complaint-item {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 1rem 0;
+  background-color: #f4f4f9;
   padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.status-pending {
+  color: #ffc107;
 }
 
 .status-in-progress {
-  color: #ffa500;
+  color: #007bff;
 }
 
 .status-resolved {
   color: #28a745;
-}
-
-.status-pending {
-  color: #dc3545;
-}
-
-/* Footer styles */
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 1rem 0;
-  background-color: #f4f4f9;
 }

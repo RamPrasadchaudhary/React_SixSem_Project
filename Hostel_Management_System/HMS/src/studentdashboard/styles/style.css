@@ -37,52 +37,24 @@ header {
   text-decoration: underline;
 }
 
-/* Loader styles */
-/*
-.loader-wrapper {
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Button Container */
+.button-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-}
-
-.loader {
-  text-align: center;
-  color: #fff;
-}
-
-.words {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.word {
-  animation: fade 1.5s infinite;
-}*/
-
-
-@keyframes fade {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Section styles */
 .section {
-  margin: 2rem auto;
-  max-width: 900px;
+  margin: 2rem 0;
   padding: 1rem;
   background-color: #fff;
   border-radius: 8px;
@@ -93,31 +65,63 @@ h2 {
   color: #007bff;
 }
 
-.profile-summary .profile-pic img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 1rem auto;
+/* Profile Picture Styling */
+.profile-summary .profile-pic {
+  width: 100px; /* Set width */
+  height: 100px; /* Set height (must match width for a perfect circle) */
+  border-radius: 50%; /* Make it circular */
+  overflow: hidden; /* Ensure the image stays within the circle */
+  margin: 1rem auto; /* Center the image */
+  border: 3px solid #007bff; /* Optional: Add a border */
+  position: relative; /* For positioning the image */
 }
 
-.edit-profile-btn,
-.logout-btn {
+.profile-summary .profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 1rem auto;
+  border: 3px solid #252a31;
+  background-image: url("/kane.jpg"); /* Set the image as a background */
+  background-size: cover; /* Ensure the image covers the circle */
+  background-position: center; /* Center the image */
+}
+/* Edit Profile Button Styling */
+.button-container .edit-profile-btn {
   display: inline-block;
-  margin: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: #007bff;
+  background-color: #28a745; /* Green color */
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.edit-profile-btn:hover,
-.logout-btn:hover {
-  background-color: #0056b3;
+.button-container .edit-profile-btn:hover {
+  background-color: #218838; /* Darker green on hover */
 }
 
+/* Logout Button Styling */
+.button-container .logout-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #dc3545; /* Red color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container .logout-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Quick Links Section */
 .quick-links-container {
   display: flex;
   gap: 1rem;
@@ -131,12 +135,14 @@ h2 {
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .quick-link:hover {
   background-color: #0056b3;
 }
 
+/* Footer styles */
 footer {
   text-align: center;
   margin-top: 2rem;
