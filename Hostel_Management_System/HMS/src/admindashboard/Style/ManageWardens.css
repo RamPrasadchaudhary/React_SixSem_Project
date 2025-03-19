@@ -133,12 +133,18 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .manage-wardens{
+    margin-left: 0px;
+  }
   .warden-card {
     width: 90%;
   }
 }
 
 @media (max-width: 576px) {
+  .manage-wardens{
+    margin-left: 0px;
+  }
   .warden-buttons {
     flex-direction: column;
     align-items: center;

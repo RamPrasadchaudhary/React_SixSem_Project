@@ -188,6 +188,9 @@
   
   /* Responsive Design */
   @media (max-width: 768px) {
+    .room-management {
+      margin-left:0px;
+    }
     .filters {
       flex-direction: column;
       align-items: stretch;
@@ -229,6 +232,9 @@
   }
   
   @media (max-width: 480px) {
+    .room-management {
+      margin-left:0px;
+    }
     h1 {
       font-size: 1.5rem;
     }

@@ -1,4 +1,4 @@
-/* Sidebar styles */
+/* Sidebar Styles */
 .sidebar {
   width: 250px; /* Default sidebar width */
   color: white;
@@ -10,12 +10,16 @@
   left: 0;
   background-color: #3498db; /* Blue sidebar background */
 }
-.sidebar-brand{
+
+.sidebar-brand {
   font-size: 25px;
+  margin-top: 30px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
 }
+
 .sidebar-menu {
+  margin-top: 30px;
   list-style: none;
   padding: 0;
 }
@@ -46,37 +50,30 @@
   margin-right: 10px;
 }
 
-/* Toggle button visibility */
+/* Toggle Button - Always Visible */
 .sidebar-toggle {
   background-color: transparent;
   border: none;
   color: white;
   font-size: 30px;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   z-index: 110; /* Above sidebar */
-  display: none;
+  display: block; /* Always display toggle button */
 }
 
-/* When sidebar is hidden */
+/* Sidebar Hidden (when using toggle functionality) */
 .sidebar.hide {
   transform: translateX(-100%); /* Hide sidebar */
 }
 
-/* Mobile styling */
+/* Mobile Styling */
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%); /* Initially hide sidebar */
-    
   }
-
   .sidebar.show {
     transform: translateX(0); /* Show sidebar when 'show' class is added */
   }
-
-  .sidebar-toggle {
-    display: block; /* Show the toggle button on small screens */
-  }
 }
-

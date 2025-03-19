@@ -1,9 +1,13 @@
+
+
+
 /* Heading Component Styles */
 .heading-container {
   position: relative; /* Ensure it's aligned properly */
   margin: 0; /* Remove margins that might restrict full width */
   margin-top: 40px;
   margin-left: 270px;
+  margin-bottom: 50px;
   padding: 20px;
   width:1175px;/* Full width of its parent container */
   max-width: 100%; /* Ensure it doesn't overflow */
@@ -33,6 +37,7 @@
   .heading-container{
     max-width: 100%;
     margin-left: 0px;
+    margin-top: 0px;
   }
   .heading-container .heading-title {
     font-size: 2rem; /* Adjust title font size for tablets */
@@ -48,6 +53,7 @@
 
   .heading-container{
     max-width: 100%;
+    margin-top: 0px;
     margin-left: 0px;
   }
   .heading-container .heading-title {

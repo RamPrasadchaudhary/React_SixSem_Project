@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import "../Style/Student.css"; // Import the CSS file
-import Heading from "./Heading";
+import "../Style/Student.css";
+import Heading from "./Heading"; // Ensure you have this component or remove if not needed
 
 const Student = () => {
   const [students, setStudents] = useState([
@@ -28,19 +28,16 @@ const Student = () => {
   const [selectedBranch, setSelectedBranch] = useState("All Branches");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState(""); // "add", "edit"
+  const [modalType, setModalType] = useState(""); // "add" or "edit"
   const [currentStudent, setCurrentStudent] = useState(null);
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
-
   const handleBranchChange = (e) => setSelectedBranch(e.target.value);
-
   const handleOpenModal = (type, student = null) => {
     setModalType(type);
     setCurrentStudent(student);
     setIsModalOpen(true);
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setCurrentStudent(null);
@@ -76,12 +73,13 @@ const Student = () => {
 
   return (
     <>
-      <div>
-        <Heading
-          title="Student Record"
-          subtitle="Manage all your student data in one place"
-        />
-      </div>
+      {/** Optional Heading component */}
+      <Heading
+        title="Student Record"
+        subtitle="Manage all your student data in one place"
+      />
+
+      <div className="student-container">
       <div className="container">
         <div className="search-bar">
           <input
@@ -154,8 +152,7 @@ const Student = () => {
                         className="delete-link"
                         onClick={() => handleDeleteStudent(student.id)}
                       >
-                        <FontAwesomeIcon icon={faTrash} className="icon" />{" "}
-                        Delete
+                        <FontAwesomeIcon icon={faTrash} className="icon" /> Delete
                       </button>
                     </td>
                   </tr>
@@ -166,6 +163,7 @@ const Student = () => {
             <p>No students found.</p>
           )}
         </div>
+      </div>
       </div>
 
       {isModalOpen && (
