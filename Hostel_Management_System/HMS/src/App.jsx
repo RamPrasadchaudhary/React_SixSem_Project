@@ -7,7 +7,7 @@ import App4 from "./studentdashboard/components/App4";
 function App() {
   return (
     <div>
-      <App2 />
+      <App4 />
     </div>
   );
 }
