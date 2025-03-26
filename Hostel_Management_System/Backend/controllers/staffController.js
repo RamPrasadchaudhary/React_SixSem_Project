@@ -1,41 +1,50 @@
-import User from "../models/User.js";
-import bcrypt from "bcryptjs";
+const pool = require("../config/db");
 
-export const createStaff = async (req, res) => {
+const getAllStudents = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-
-    // Validate input
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
-
-    // Check if email already exists
-    const existingUser = await User.findByEmail(email);
-    if (existingUser.length > 0) {
-      return res.status(400).json({ message: "Email already in use" });
-    }
-
-    // Create staff account
-    const staffId = await User.createStaff({ name, email, password });
-
-    res.status(201).json({
-      success: true,
-      message: "Staff account created successfully",
-      staffId,
-    });
+    const [rows] = await pool.query("SELECT * FROM students");
+    res.json(rows);
   } catch (error) {
-    console.error("Create staff error:", error);
-    res.status(500).json({ message: "Server error" });
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
 };
 
-export const getAllStaff = async (req, res) => {
+const createStudent = async (req, res) => {
   try {
-    const staff = await User.getAllStaff();
-    res.json(staff);
+    const {
+      student_id,
+      name,
+      email,
+      password,
+      room_no,
+      branch,
+      contact,
+      admission_date,
+    } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    await pool.query(`INSERT INTO students SET ?`, {
+      student_id,
+      name,
+      email,
+      password: hashedPassword,
+      room_no,
+      branch,
+      contact,
+      admission_date,
+      created_by: req.user.id,
+    });
+
+    res.status(201).json({ message: "Student created successfully" });
   } catch (error) {
-    console.error("Get staff error:", error);
-    res.status(500).json({ message: "Server error" });
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
+};
+
+module.exports = {
+  getAllStudents,
+  createStudent,
 };

@@ -1,23 +1,28 @@
 import React, { useState } from "react";
-import "../Style/Login.css";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserTie, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import "../Style/Login.css";
 
 const Login = () => {
-  const [role, setRole] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [roleMessage, setRoleMessage] = useState("");
+  const [formData, setFormData] = useState({
+    role: "",
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
-  const handleRoleChange = (e) => {
-    setRole(e.target.value);
-    if (e.target.value) {
-      setRoleMessage("");
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    // Clear error when user types
+    if (error) setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -25,40 +30,54 @@ const Login = () => {
     setLoading(true);
     setError("");
 
-    if (!role) {
-      setRoleMessage("Please select your role");
+    // Validate role selection
+    if (!formData.role) {
+      setError("Please select your role");
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: username,
-          password,
-          role,
+          email: formData.email,
+          password: formData.password,
+          role: formData.role,
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Login failed");
+        throw new Error(
+          data.error || "Login failed. Please check your credentials."
+        );
       }
 
-      // On successful login for student
-      if (data.role === "student") {
-        navigate("/student-dashboard"); // Redirect to student dashboard
-      } else {
-        // Handle other roles if needed
-        navigate("/"); // Default redirect
+      // Handle successful login
+      localStorage.setItem(`${formData.role}Token`, data.token);
+      localStorage.setItem("userData", JSON.stringify(data.user));
+
+      // Redirect based on role
+      switch (formData.role) {
+        case "admin":
+          navigate("/admin/dashboard");
+          break;
+        case "staff":
+          navigate("/staff/dashboard");
+          break;
+        case "student":
+          navigate("/student/dashboard");
+          break;
+        default:
+          navigate("/");
       }
-    } catch (error) {
-      setError(error.message || "Failed to connect to server");
+    } catch (err) {
+      setError(err.message || "An error occurred during login");
     } finally {
       setLoading(false);
     }
@@ -66,55 +85,95 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="form-wrapper">
-        <h2>Hostel Dashboard Login</h2>
-        {error && <div className="error-message">{error}</div>}
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <div className="flex-column">
-            <label htmlFor="role">Select Role</label>
-            <div className="inputForm">
-              <FontAwesomeIcon icon={faUserTie} id="role-icon" />
-              <select value={role} onChange={handleRoleChange} required>
-                <option value="" disabled>
-                  Select your role
-                </option>
-                <option value="student">Student</option>
-                <option value="staff">Staff</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
-            {roleMessage && <p className="role-message">{roleMessage}</p>}
+      <div className="login-card">
+        <div className="login-header">
+          <h2>Hostel Management System</h2>
+          <p>Sign in to your account</p>
+        </div>
+
+        {error && <div className="login-error">{error}</div>}
+
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label htmlFor="role">
+              <FontAwesomeIcon icon={faUserTie} className="input-icon" />
+              Select Role
+            </label>
+            <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              required
+              className="form-input"
+            >
+              <option value="" disabled>
+                Select your role
+              </option>
+              <option value="admin">Admin</option>
+              <option value="staff">Staff</option>
+              <option value="student">Student</option>
+            </select>
           </div>
-          <div className="flex-column">
-            <label htmlFor="username">Username</label>
-            <div className="inputForm">
-              <FontAwesomeIcon icon={faUser} />
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="student@hms.com"
-                required
-              />
-            </div>
+
+          <div className="form-group">
+            <label htmlFor="email">
+              <FontAwesomeIcon icon={faUser} className="input-icon" />
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+              className="form-input"
+            />
           </div>
-          <div className="flex-column">
-            <label htmlFor="password">Password</label>
-            <div className="inputForm">
-              <FontAwesomeIcon icon={faLock} />
+
+          <div className="form-group">
+            <label htmlFor="password">
+              <FontAwesomeIcon icon={faLock} className="input-icon" />
+              Password
+            </label>
+            <div className="password-input-container">
               <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                type={passwordVisible ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Enter your password"
                 required
+                className="form-input"
               />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                <FontAwesomeIcon icon={passwordVisible ? faEyeSlash : faEye} />
+              </button>
             </div>
           </div>
-          <button type="submit" className="button-submit" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
+
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? (
+              <>
+                <span className="spinner"></span>
+                Signing in...
+              </>
+            ) : (
+              "Sign In"
+            )}
           </button>
         </form>
+
+        <div className="login-footer">
+          <p>
+            Having trouble signing in?{" "}
+            <a href="/forgot-password">Reset your password</a>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -1,244 +1,243 @@
 /* Main Container */
-.student-container{
-margin-left:250px ;
+.student-container {
+  margin-left: 250px;
 }
 .container {
-    max-width: 1000px;
-    margin: 20px 20px 20px 320px; /* top, right, bottom, left */
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    box-sizing: border-box;
+  max-width: 1000px;
+  margin: 20px 20px 20px 320px; /* top, right, bottom, left */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Heading styles (if not in Heading component) */
+h1 {
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.search-button,
+.reset-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+  flex-shrink: 0;
+}
+
+.search-button:hover,
+.reset-button:hover {
+  background-color: #0056b3;
+}
+
+/* Filter by Branch */
+.filter-branch {
+  margin-bottom: 20px;
+}
+
+.filter-branch label {
+  margin-right: 10px;
+}
+
+.filter-branch select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #34495e;
+}
+
+/* Add Student Link */
+.add-student-link {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.add-student-button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.add-student-button:hover {
+  background-color: #218838;
+}
+
+/* Student List */
+.student-list {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.student-table th,
+.student-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.student-table th {
+  background-color: #f2f2f2;
+  color: #34495e;
+}
+
+.student-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.student-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Icon and Link Styles */
+.icon {
+  font-size: 16px;
+}
+
+.edit-link {
+  width: 100%;
+  color: green;
+}
+
+.delete-link {
+  color: red;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .student-container {
+    margin-left: 0px;
   }
-  
-  /* Heading styles (if not in Heading component) */
+  .container {
+    max-width: 95%;
+    margin-left: 320px;
+  }
+
   h1 {
-    text-align: center;
-    color: #34495e;
-    margin-bottom: 20px;
+    font-size: 28px;
   }
-  
-  /* Search Bar */
-  .search-bar {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .search-bar input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  .search-button,
-  .reset-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    transition: background-color 0.3s;
-    flex-shrink: 0;
-  }
-  
-  .search-button:hover,
-  .reset-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Filter by Branch */
-  .filter-branch {
-    margin-bottom: 20px;
-  }
-  
-  .filter-branch label {
-    margin-right: 10px;
-  }
-  
-  .filter-branch select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #34495e;
-  }
-  
-  /* Add Student Link */
-  .add-student-link {
-    text-align: right;
-    margin-bottom: 10px;
-  }
-  
-  .add-student-button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  
-  .add-student-button:hover {
-    background-color: #218838;
-  }
-  
-  /* Student List */
-  .student-list {
-    width: 100%;
-    overflow-x: auto;
-  }
-  
-  .student-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-sizing: border-box;
-  }
-  
+
   .student-table th,
   .student-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .student-table th {
-    background-color: #f2f2f2;
-    color: #34495e;
-  }
-  
-  .student-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .student-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Modal Styles */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  /* Icon and Link Styles */
-  .icon {
     font-size: 16px;
   }
-  
-  .edit-link {
+}
+
+@media (max-width: 768px) {
+  .student-container {
+    margin-left: 0px;
+  }
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-button,
+  .reset-button {
     width: 100%;
-    color: green;
+    margin-bottom: 10px;
   }
-  
-  .delete-link {
-    color: red;
-    width: 100%;
+
+  .add-student-link {
+    text-align: center;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 1024px) {
-    .student-container{
-        margin-left:0px ;
-        }
-    .container {
-      max-width: 95%;
-      margin-left: 320px;
-    }
-  
-    h1 {
-      font-size: 28px;
-    }
-  
-    .student-table th,
-    .student-table td {
-      font-size: 16px;
-    }
+
+  .student-table th,
+  .student-table td {
+    font-size: 14px;
   }
-  
-  @media (max-width: 768px) {
-    .student-container{
-        margin-left:0px ;
-        }
-    .search-bar {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .search-button,
-    .reset-button {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  
-    .add-student-link {
-      text-align: center;
-    }
-  
-    .student-table th,
-    .student-table td {
-      font-size: 14px;
-    }
+}
+
+@media (max-width: 480px) {
+  .student-container {
+    margin-left: 0px;
   }
-  
-  @media (max-width: 480px) {
-    .student-container{
-        margin-left:0px ;
-        }
-    .container {
-      padding: 15px;
-    }
-  
-    h1 {
-      font-size: 20px;
-    }
-  
-    .student-table th,
-    .student-table td {
-      font-size: 12px;
-      padding: 8px;
-    }
-  
-    .search-bar input {
-      font-size: 14px;
-    }
-  
-    .add-student-button {
-      padding: 8px 10px;
-    }
+  .container {
+    padding: 15px;
   }
-  
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .student-table th,
+  .student-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+  }
+
+  .add-student-button {
+    padding: 8px 10px;
+  }
+}

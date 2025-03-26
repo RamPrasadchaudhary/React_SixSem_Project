@@ -1,15 +1,15 @@
-import express from "express";
-import { createStaff, getAllStaff } from "../controllers/staffController.js";
-import authMiddleware from "../middleware/authMiddleware.js";
-// Add this with other imports
-import staffRoutes from "./routes/staffRoutes.js";
-
-// Add this with other route middleware
-app.use("/api/staff", staffRoutes);
+const express = require("express");
 const router = express.Router();
+const staffController = require("../controllers/staffController");
+const {
+  authMiddleware,
+  adminMiddleware,
+} = require("../middleware/authMiddleware");
 
-// Only admin can access these routes
-router.post("/", authMiddleware, createStaff);
-router.get("/", authMiddleware, getAllStaff);
+router.use(authMiddleware);
+router.use(adminMiddleware);
 
-export default router;
+router.get("/students", staffController.getAllStudents);
+router.post("/students", staffController.createStudent);
+
+module.exports = router;
