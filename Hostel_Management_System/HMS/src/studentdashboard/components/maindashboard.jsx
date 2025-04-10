@@ -18,7 +18,7 @@ const MainDashboard = () => {
     console.log("User logged out");
 
     // Navigate to the Home page
-    navigate("/home");
+    //navigate("/home");
   };
 
   return (
