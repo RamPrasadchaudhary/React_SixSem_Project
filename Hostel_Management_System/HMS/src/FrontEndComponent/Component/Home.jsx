@@ -10,7 +10,7 @@ const Home = () => {
       caption: "Comfortable Rooms for a Relaxing Stay",
     },
     { src: "image2.png", caption: "Enjoy Delicious and Nutritious Meals",},
-    { src: "Hostel.png", caption: "A Friendly Community You'll Love", },
+    { src: "hostel.jpg", caption: "A Friendly Community You'll Love", },
   ];
 
   const latestNews = [
@@ -83,7 +83,7 @@ const Home = () => {
           <button className="btn-secondary">Learn More</button>
         </div>
         <div className="about-image">
-          <img src="Hostel.png" alt="About Munnu Hostel" />
+          <img src="hostel.jpg" alt="About Munnu Hostel" />
         </div>
       </section>
 
